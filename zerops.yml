@@ -1,26 +1,58 @@
-gui:
-  build:
-    base: [ nodejs@14 ]
-    build:
-      - npm i
-      - npm run build monorepoonzerops
-    deploy:
-      - ./dist/apps/monorepoonzerops
-    # cache: [ node_modules ]
-  run:
-    start: echo 'hi'
+# gui:
+#   build:
+
+#     # build image
+#     base: [ nodejs@14 ]
+#     prepare:
+#       - npm i -g strapi
+
+#     build:
+#       - npm i
+#       - npm run build monorepoonzerops
+#     deploy:
+#       - ./dist/apps/monorepoonzerops
+#     cache: [ node_modules ]
+
+#   run:
+#     start:
 
 api:
   build:
+
     base: [ nodejs@14 ]
+    prepare:
+      - npm i -g @nestjs/cli
+
     build:
-      - npm i
-      - npm run build api
+      - nest --help
+      - npm i --loglevel=error
+      - npm run build api --loglevel=error
     deploy:
       - ./dist/apps/api
       - node_modules
       - package.json
-    # cache: [ node_modules ]
+    cache: [ node_modules ]
+  run:
+    # prepare:
+    #   - touch foo.txt
+    start: node dist/apps/api/main.js
+
+api2:
+  build:
+
+    base: [ nodejs@14 ]
+    prepare:
+      - npm i -g @nestjs/cli
+
+    build:
+      - nest --help
+      - npm i --loglevel=error
+      - npm run build api --loglevel=error
+    deploy:
+      - ./dist/apps/api
+      - node_modules
+      - package.json
+    cache: [ node_modules ]
   run:
     # prepare:
     #   - touch foo.txt
