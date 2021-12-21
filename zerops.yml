@@ -39,6 +39,7 @@ api:
       - npm config set unsafe-perm true
       - npm i -g @zerops/zcli
     init:
+      - echo "init"
       - zcli --help
     start: node dist/apps/api/main.js
 
