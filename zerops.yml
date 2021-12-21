@@ -36,6 +36,7 @@ api:
     cache: [ node_modules ]
   run:
     prepare:
+      - npm config set unsafe-perm true
       - npm i -g @zerops/zcli
     init:
       - zcli --help
