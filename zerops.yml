@@ -21,8 +21,9 @@ api:
 
     base: [ nodejs@14 ]
     prepare:
+      - npm config set unsafe-perm true
       - npm i -g @nestjs/cli
-      - mkdir -p '/usr/lib/node_modules/@zerops/zcli/node_modules/@cloudflare/binary-install/src/bin'
+      - npm i -g @zerops/zcli
 
     build:
       - nest --help
