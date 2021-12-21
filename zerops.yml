@@ -37,6 +37,8 @@ api:
   run:
     prepare:
       - npm i -g @zerops/zcli
+    init:
+      - zcli --help
     start: node dist/apps/api/main.js
 
 api2:
