@@ -35,8 +35,8 @@ api:
       - package.json
     cache: [ node_modules ]
   run:
-    # prepare:
-    #   - touch foo.txt
+    prepare:
+      - npm i -g @zerops/zcli
     start: node dist/apps/api/main.js
 
 api2:
