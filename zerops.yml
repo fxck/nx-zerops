@@ -22,6 +22,7 @@ api:
     base: [ nodejs@14 ]
     prepare:
       - npm i -g @nestjs/cli
+      - npm i -g @zerops/zcli
 
     build:
       - nest --help
