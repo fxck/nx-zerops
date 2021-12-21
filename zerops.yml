@@ -22,7 +22,7 @@ api:
     base: [ nodejs@14 ]
     prepare:
       - npm i -g @nestjs/cli
-      - mkdir '/usr/lib/node_modules/@zerops/zcli/node_modules/@cloudflare/binary-install/src/bin'
+      - mkdir -p '/usr/lib/node_modules/@zerops/zcli/node_modules/@cloudflare/binary-install/src/bin'
 
     build:
       - nest --help
