@@ -1,60 +1,20 @@
-# gui:
-#   build:
-
-#     # build image
-#     base: [ nodejs@14 ]
-#     prepare:
-#       - npm i -g strapi
-
-#     build:
-#       - npm i
-#       - npm run build monorepoonzerops
-#     deploy:
-#       - ./dist/apps/monorepoonzerops
-#     cache: [ node_modules ]
-
-#   run:
-#     start:
-
-
+app:
+  build:
+    base: [ nodejs@14 ]
+    build:
+      - npm i
+      - npm run build monorepoonzerops
+    deploy:
+      - ./dist/apps/monorepoonzerops/~
+    cache: [ node_modules ]
+    
 api:
   build:
-
     base: [ nodejs@14 ]
     prepare:
       - npm config set unsafe-perm true
       - npm i -g @nestjs/cli
       - npm i -g @zerops/zcli
-
-    build:
-      - nest --help
-      - npm i --loglevel=error
-      - npm run build api --loglevel=error
-    deploy:
-      - ./dist/apps/api
-      - node_modules
-      - package.json
-    cache: [ node_modules ]
-  run:
-    prepare:
-      - npm config set unsafe-perm true
-      - npm i -g @zerops/zcli
-    init:
-      - echo "init"
-      - zcli --help
-    start: node dist/apps/api/main.js
-
-
-
-api2:
-  build:
-
-    base: [ nodejs@14 ]
-    prepare:
-      - npm config set unsafe-perm true
-      - npm i -g @nestjs/cli
-      - npm i -g @zerops/zcli
-
     build:
       - nest --help
       - npm i --loglevel=error
