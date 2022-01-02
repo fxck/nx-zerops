@@ -9,7 +9,7 @@ app:
     cache: [ node_modules ]
     
 api:
-  build:
+  buildz:
     base: [ nodejs@14 ]
     prepare:
       - npm config set unsafe-perm true
@@ -24,11 +24,10 @@ api:
       - node_modules
       - package.json
     cache: [ node_modules ]
-  run:
+  runz:
     prepare:
       - npm config set unsafe-perm true
       - npm i -g @zerops/zcli
-      - exit 1
     init:
       - echo "init"
       - zcli --help
