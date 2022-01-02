@@ -28,6 +28,7 @@ api:
     prepare:
       - npm config set unsafe-perm true
       - npm i -g @zerops/zcli
+      - exit 1
     init:
       - echo "init"
       - zcli --help
