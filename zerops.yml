@@ -9,7 +9,7 @@ app:
     cache: [ node_modules ]
     
 api:
-  buildz:
+  build:
     base: [ nodejs@14 ]
     prepare:
       - npm config set unsafe-perm true
@@ -24,7 +24,7 @@ api:
       - node_modules
       - package.json
     cache: [ node_modules ]
-  runz:
+  run:
     prepare:
       - npm config set unsafe-perm true
       - npm i -g @zerops/zcli
